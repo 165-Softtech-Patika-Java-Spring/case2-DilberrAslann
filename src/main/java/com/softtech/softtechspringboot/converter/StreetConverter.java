@@ -22,6 +22,7 @@ public class StreetConverter {
 
         return streetDtoList;
     }
+//Bu kısım Street i StreetDto olarak dönüştürür.
 
     public StreetDto convertToStreetDto(Street street) {
         StreetDto streetDto=new StreetDto();

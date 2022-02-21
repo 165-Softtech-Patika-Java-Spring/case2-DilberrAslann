@@ -23,6 +23,7 @@ public class DistrictConverter {
 
         return districtDtoList;
     }
+//Bu kısım District i DistrictDto olarak dönüştürür.
 
     public DistrictDto convertToDistrictDto(District district) {
         DistrictDto districtDto=new DistrictDto();

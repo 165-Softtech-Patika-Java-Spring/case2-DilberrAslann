@@ -22,7 +22,7 @@ public class CityConverter {
 
         return cityDtoList;
     }
-
+//Bu kısım City i CityDto olarak dönüştürür.
     public CityDto convertToCityDto(City city) {
         CityDto cityDto = new CityDto();
         cityDto.setPlate(city.getPlate());

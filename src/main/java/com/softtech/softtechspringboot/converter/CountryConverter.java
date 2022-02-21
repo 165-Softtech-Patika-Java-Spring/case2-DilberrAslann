@@ -22,6 +22,7 @@ public class CountryConverter {
 
         return countryDtoList;
     }
+//Bu kısım Country i CountryDto olarak dönüştürür.
 
     public CountryDto convertToCountryDto(Country country) {
         CountryDto countryDto = new CountryDto();

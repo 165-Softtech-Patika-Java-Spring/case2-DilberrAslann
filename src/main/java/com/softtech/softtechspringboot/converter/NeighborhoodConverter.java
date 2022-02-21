@@ -21,6 +21,7 @@ public class NeighborhoodConverter {
 
         return neighborhoodDtoList;
     }
+//Bu kısım Neighborhood u NeighborhoodDto olarak dönüştürür.
 
     public NeighborhoodDto convertToNeighborhoodDto(Neighborhood neighborhood) {
         NeighborhoodDto neighborhoodDto=new NeighborhoodDto();

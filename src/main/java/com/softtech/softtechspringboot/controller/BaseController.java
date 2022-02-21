@@ -23,24 +23,28 @@ public class BaseController {
     private final AddressService addressService;
 
 
-
+//Ülkeyi post etmek için kullanılıyor.
     @PostMapping("/country")
     public Country save(@RequestBody Country country) {
 
         return countryService.save(country);
     }
-
+    
+//Ülke verilerini almak için kullanılıyor.
     @GetMapping("/country")
     public ResponseEntity findCountryById(@RequestParam int countryId) {
         CountryDto countryDto = countryService.findById(countryId);
         return ResponseEntity.ok(countryDto);
     }
 
+//Şehri post etmek için kullanılıyor.
     @PostMapping("/city")
     public  City save(@RequestBody City city){
 
         return cityService.save(city);
     }
+
+//Şehir verilerini almak için kullanılıyor.
     @GetMapping("/city")
     public ResponseEntity getCityById(@RequestParam String id){
 
@@ -48,13 +52,14 @@ public class BaseController {
 
         return ResponseEntity.ok(cityDto);
     }
-
+//İlçeyi post etmek için kullanılıyor.
     @PostMapping("/district")
     public District save(@RequestBody District district) {
 
         return districtService.save(district);
     }
 
+//İlçe verilerini almak için kullanılıyor.
     @GetMapping("/district")
     public  ResponseEntity getDistrictByID(@RequestParam int id){
 
@@ -62,13 +67,14 @@ public class BaseController {
 
         return  ResponseEntity.ok(districtDto);
     }
-
+///Mahalleyi post etmek için kullanılıyor.
     @PostMapping("/neighborhood")
     public Neighborhood save(@RequestBody Neighborhood neighborhood) {
 
         return neighborhoodService.save(neighborhood);
     }
 
+//Mahalle verilerini almak için kullanılıyor.
     @GetMapping("/neighborhood")
     public  ResponseEntity getNeighborhoodById(@RequestParam int id){
 
@@ -85,31 +91,34 @@ public class BaseController {
         return ResponseEntity.ok(neighborhoodDto);
 
     }*/
-
+//Sokağı post etmek için kullanılıyor.
     @PostMapping("/street")
     public Street save(@RequestBody Street street) {
 
         return streetService.save(street);
     }
 
+//Sokak verilerini almak için kullanılıyor.
     @GetMapping("/street")
     public ResponseEntity findStreetById(@RequestParam int streetId){
         StreetDto streetDto=streetService.findById(streetId);
         return ResponseEntity.ok(streetDto);
     }
+    ////Adresi post etmek için kullanılıyor.
     @PostMapping("/fullAddress")
     public Address save(@RequestBody Address address){
 
 
         return addressService.save(address);
     }
-
+//Adres verilerini almak için kullanılıyor.
     @GetMapping("/fullAddress")
     public ResponseEntity findFullAddressById(@RequestParam int fullAddressId){
 
         AddressDto addressDto=addressService.findById(fullAddressId);
         return  ResponseEntity.ok(addressDto);
     }
+    //Adresi silmek için kullanılır.
    @DeleteMapping("/{id}")
    public ResponseEntity delete(@PathVariable int id){
 

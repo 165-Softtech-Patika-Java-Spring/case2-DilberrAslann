@@ -21,6 +21,7 @@ public class AddressConverter {
 
         return addressDtoList;
     }
+//Bu kısım Address i AddressDto olarak dönüştürür.
 
     public AddressDto convertToAddressDto(Address address) {
         AddressDto addressDto = new AddressDto();
