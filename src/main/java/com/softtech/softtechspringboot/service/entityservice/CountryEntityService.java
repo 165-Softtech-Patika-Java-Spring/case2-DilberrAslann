@@ -5,6 +5,7 @@ import com.softtech.softtechspringboot.entity.Country;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,13 +14,15 @@ public class CountryEntityService {
 
     private final CountryDao countryDao;
 
-    public Country save(Country country){
+    public List<Country> findAll(){
+        return countryDao.findAll();
+    }
 
+    public Country save(Country country){
         return countryDao.save(country);
     }
 
-    public Optional<Country> findById(Integer id){
-
-        return countryDao.findById(id);
+    public Country findByCountryCode(String countryCode){
+        return countryDao.findByCode(countryCode);
     }
 }

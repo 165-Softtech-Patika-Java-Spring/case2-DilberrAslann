@@ -7,18 +7,19 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "COUNTRY")
+@Table(name = "DISTRICT")
 @Getter
 @Setter
 public class District {
+
     @Id
     @SequenceGenerator(name = "District", sequenceName = "DISTRICT_ID_SEQ")
     @GeneratedValue(generator = "District")
-    private int id;
+    private Long id;
+
+    @Column(name = "NAME", nullable = false, length = 100)
+    private String name;
 
     @Column(name = "ID_CITY")
-    private int cityId;
-
-    @Column(name = "NAME")
-    private String name;
+    private Long cityId;
 }

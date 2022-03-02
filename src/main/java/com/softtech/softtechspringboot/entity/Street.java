@@ -11,14 +11,15 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Street {
+
     @Id
     @SequenceGenerator(name = "Street", sequenceName = "STREET_ID_SEQ")
     @GeneratedValue(generator = "Street")
-    private int id;
+    private Long id;
+
+    @Column(name = "NAME", length = 150, nullable = false)
+    private String name;
 
     @Column(name = "ID_NEIGHBORHOOD")
-    private int neighborhoodId;
-
-    @Column(name = "NAME")
-    private String name;
+    private Long neighborhoodId;
 }

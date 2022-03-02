@@ -10,16 +10,16 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Neighborhood {
+
     @Id
     @SequenceGenerator(name = "Neighborhood", sequenceName = "NEIGHBORHOOD_ID_SEQ")
     @GeneratedValue(generator = "Neighborhood")
-    private int id;
+    private Long id;
 
-    @Column(name = "ID_DISTRICT")
-    private int districtId;
-
-    @Column(name = "NAME")
+    @Column(name = "NAME", length = 150, nullable = false)
     private String name;
 
+    @Column(name = "ID_DISTRICT")
+    private Long districtId;
 
 }

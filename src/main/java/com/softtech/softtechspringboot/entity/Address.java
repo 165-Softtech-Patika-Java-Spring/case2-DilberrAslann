@@ -11,30 +11,30 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Address {
+
     @Id
-    @SequenceGenerator(name = "Country", sequenceName = "COUNTRY_ID_SEQ")
-    @GeneratedValue(generator = "Country")
-    private Integer id;
+    @SequenceGenerator(name = "Address", sequenceName = "ADDRESS_ID_SEQ")
+    @GeneratedValue(generator = "Address")
+    private Long id;
 
-    @Column(name = "COUNTRY")
-    private String country;
+    @Column(name = "ID_COUNTRY")
+    private Long countryId;
 
-    @Column(name = "CITY")
-    private String city;
+    @Column(name = "ID_CITY")
+    private Long cityId;
 
-    @Column(name = "DISTRICT")
-    private String district;
+    @Column(name = "ID_DISTRICT")
+    private Long districtId;
 
-    @Column(name = "NEIGHBORHOOD")
-    private String neighborhood;
+    @Column(name = "ID_NEIGHBORHOOD")
+    private Long neighborhoodId;
 
-    @Column(name = "STREET")
-    private String street;
+    @Column(name = "ID_STREET")
+    private Long streetId;
 
     @Column(name = "DOOR_NUMBER")
-    private Integer doorNumber;
+    private String doorNumber;
 
     @Column(name = "APARTMENT_NUMBER")
     private String apartmentNumber;
-
 }

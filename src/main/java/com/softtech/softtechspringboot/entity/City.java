@@ -9,15 +9,19 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class City {
+
+    @GeneratedValue(generator = "City")
+    @SequenceGenerator(name = "City", sequenceName = "CITY_ID_SEQ")
     @Id
-    @Column(name="PLATE")
-    private String plate;
+    @Column(name = "ID")
+    private Long id;
 
-    @Column(name = "ID_COUNTRY")
-    private int countryId;
-
-    @Column(name = "NAME")
+    @Column(name = "NAME", length = 100, nullable = false)
     private String name;
 
+    @Column(name = "PLATE_CODE", length = 5, nullable = false)
+    private String plateCode;
 
+    @Column(name = "ID_COUNTRY")
+    private Long countryId;
 }

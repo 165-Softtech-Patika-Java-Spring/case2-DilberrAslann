@@ -1,6 +1,10 @@
 package com.softtech.softtechspringboot.service.entityservice;
 
+import com.softtech.softtechspringboot.converter.AddressMapper;
 import com.softtech.softtechspringboot.dao.AddressDao;
+import com.softtech.softtechspringboot.dto.AddressDetailDto;
+import com.softtech.softtechspringboot.dto.AddressResponseDto;
+import com.softtech.softtechspringboot.dto.AddressSaveRequestDto;
 import com.softtech.softtechspringboot.entity.Address;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,34 +16,48 @@ import java.util.Optional;
 public class AddressEntityService {
 
     private final AddressDao addressDao;
-    public final AddressEntityService addressEntityService;
 
-    public Address save(Address address){
+    public AddressResponseDto save(AddressSaveRequestDto addressSaveRequestDto){
 
-        return addressDao.save(address);
+        Address address = AddressMapper.INSTANCE.convertToAddress(addressSaveRequestDto);
+
+        address = addressDao.save(address);
+
+        AddressResponseDto addressResponseDto = AddressMapper.INSTANCE.convertToAddressResponseDto(address);
+
+        return addressResponseDto;
     }
 
-    public Optional<Address> findById(Integer id){
+    public void delete(Long id){
 
-        return addressDao.findById(id);
-    }
-
-    public void delete(Address address){
+        Address address = getById(id);
 
         addressDao.delete(address);
     }
 
-    public Address getByIdWithControl(Integer id) {
+    public AddressResponseDto findById(Long id){
 
-        Optional<Address> addressOptional = findById(id);
+        Address address = getById(id);
+
+        AddressResponseDto addressResponseDto = AddressMapper.INSTANCE.convertToAddressResponseDto(address);
+
+        return addressResponseDto;
+    }
+
+    public AddressDetailDto findAddressDetails(Long id){
+        return addressDao.findAddressDetails(id);
+    }
+
+    private Address getById(Long id) {
+
+        Optional<Address> addressOptional = addressDao.findById(id);
 
         Address address;
-        if (addressOptional.isPresent()){
+        if (addressOptional.isPresent()) {
             address = addressOptional.get();
-        }else{
-          address=null;
+        } else {
+            throw new RuntimeException("Item not found!");
         }
         return address;
-
     }
 }

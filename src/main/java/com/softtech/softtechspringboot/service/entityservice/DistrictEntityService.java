@@ -5,6 +5,7 @@ import com.softtech.softtechspringboot.entity.District;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,12 +15,10 @@ public class DistrictEntityService {
     private final DistrictDao districtDao;
 
     public District save(District district){
-
         return districtDao.save(district);
     }
 
-    public Optional<District> findById(Integer id){
-
-        return districtDao.findById(id);
+    public List<District> findAllByCityId(Long cityId){
+        return districtDao.findAllByCityId(cityId);
     }
 }

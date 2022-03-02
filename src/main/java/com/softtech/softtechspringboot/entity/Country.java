@@ -10,14 +10,17 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Country {
-    @Id
-    @SequenceGenerator(name = "Country", sequenceName = "COUNTRY_ID_SEQ")
-    @GeneratedValue(generator = "Country")
-    private Integer id;
 
-    @Column(name = "NAME")
+    @Id
+    @GeneratedValue(generator = "Country")
+    @SequenceGenerator(name = "Country" , sequenceName = "COUNTRY_ID_SEQ")
+    private Long id;
+
+    @Column(name = "NAME", length = 100, nullable = false)
     private String name;
 
+    @Column(name = "CODE", length = 5, nullable = false, unique = true)
+    private String code;
 }
 
 
